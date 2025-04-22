@@ -3,6 +3,8 @@ import 'package:just_audio/just_audio.dart';
 import '../app_styles.dart';
 
 class AudioScreen extends StatefulWidget {
+  const AudioScreen({super.key});
+
   @override
   _AudioScreenState createState() => _AudioScreenState();
 }
@@ -47,7 +49,7 @@ class _AudioScreenState extends State<AudioScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text('Гучність', style: AppTextStyles.body),
+            Text('Гучність', style: AppTextStyles.title),
             Slider(value: _volume, onChanged: _setVolume, min: 0, max: 1),
             SizedBox(height: 20),
             StreamBuilder<PlayerState>(

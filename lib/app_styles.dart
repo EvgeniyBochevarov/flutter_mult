@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-
-class AppColors {
-  static const Color primary = Color(0xFF6200EE);
-  static const Color secondary = Color(0xFF03DAC6);
-  static const Color background = Color(0xFFF2F2F2);
-}
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
-  static const TextStyle title = TextStyle(
+  static TextStyle title = GoogleFonts.roboto(
     fontSize: 24,
     fontWeight: FontWeight.bold,
+    color: Colors.black,
   );
 
-  static const TextStyle body = TextStyle(fontSize: 16);
-
-  static const TextStyle buttonText = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w500,
+  static TextStyle buttonText = GoogleFonts.roboto(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
   );
 }

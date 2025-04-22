@@ -1,41 +1,49 @@
 import 'package:flutter/material.dart';
-import '../app_styles.dart';
-import 'video_screen.dart';
-import 'audio_screen.dart';
+import 'package:flutter_mult/app_styles.dart';
+import 'package:flutter_mult/screens/audio_screen.dart' as audio;
+import 'package:flutter_mult/screens/video_screen.dart' as video;
 
 class HomeScreen extends StatelessWidget {
   final VoidCallback onToggleTheme;
-  const HomeScreen({required this.onToggleTheme});
+
+  const HomeScreen({super.key, required this.onToggleTheme});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Головна', style: AppTextStyles.title)),
-      body: Center(
+      appBar: AppBar(
+        title: Text('Головна', style: AppTextStyles.title),
+        actions: [
+          IconButton(icon: Icon(Icons.brightness_6), onPressed: onToggleTheme),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
-              onPressed: onToggleTheme,
-              child: Text('Змінити тему', style: AppTextStyles.buttonText),
-            ),
-            SizedBox(height: 20),
+            Text('Мультимедійний додаток', style: AppTextStyles.title),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed:
                   () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => VideoScreen()),
+                    MaterialPageRoute(
+                      builder: (_) => const audio.AudioScreen(),
+                    ),
                   ),
-              child: Text('Відео', style: AppTextStyles.buttonText),
+              child: Text('Перейти до аудіо', style: AppTextStyles.buttonText),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed:
                   () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => AudioScreen()),
+                    MaterialPageRoute(
+                      builder: (_) => const video.VideoScreen(),
+                    ),
                   ),
-              child: Text('Аудіо', style: AppTextStyles.buttonText),
+              child: Text('Перейти до відео', style: AppTextStyles.buttonText),
             ),
           ],
         ),

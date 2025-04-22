@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'screens/home_screen.dart';
-import 'app_styles.dart';
+import 'package:flutter_mult/app_theme.dart';
+import 'package:flutter_mult/screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +8,7 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -26,17 +25,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Мультимедійний додаток',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       themeMode: _themeMode,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: AppColors.primary,
-        textTheme: GoogleFonts.robotoTextTheme().apply(bodyColor: Colors.black),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: AppColors.primary,
-        textTheme: GoogleFonts.robotoTextTheme().apply(bodyColor: Colors.white),
-      ),
       home: HomeScreen(onToggleTheme: _toggleTheme),
     );
   }
